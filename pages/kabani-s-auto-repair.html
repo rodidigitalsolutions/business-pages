@@ -15,11 +15,11 @@ html{scroll-behavior:smooth}
 body{font-family:'Barlow',sans-serif;background:#0D1F3C;color:white;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 
-/* EMERGENCY BANNER */
-.emergency-bar{background:#1565C0;padding:10px 40px;text-align:center;position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:16px}
-.emergency-bar span{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-.emergency-bar a{background:white;color:#1565C0;padding:6px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.05em;transition:all .3s}
-.emergency-bar a:hover{background:#0D1F3C;color:white}
+/* EMERGENCY BANNER — uses secondary if primary is too dark to stand out */
+.emergency-bar{background:#42A5F5;padding:10px 40px;text-align:center;position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:16px}
+.emergency-bar span{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.emergency-bar a{background:white;color:#0D1F3C;padding:6px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.05em;transition:all .3s}
+.emergency-bar a:hover{background:rgba(0,0,0,.2);color:white}
 
 /* NAV */
 nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:#0D1F3CEE;backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -33,11 +33,11 @@ nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64p
 
 /* HERO */
 .hero{min-height:100vh;padding-top:104px;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat;filter:brightness(.25);transform:scale(1.05);will-change:transform}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1625047509253-ab38e31f45be?w=1600&q=80') center/cover no-repeat;filter:brightness(.25);transform:scale(1.05);will-change:transform}
 .hero-accent{position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(to left,#1565C022,transparent);pointer-events:none}
 .hero-content{position:relative;z-index:2;padding:0 40px;max-width:900px}
-.hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#1565C0;margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px)}
-.hero-kicker::before{content:'';display:block;width:32px;height:2px;background:#1565C0}
+.hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px)}
+.hero-kicker::before{content:'';display:block;width:32px;height:2px;background:#42A5F5}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,10vw,9rem);font-weight:900;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:white;margin-bottom:24px;opacity:0;transform:translateY(50px)}
 .hero h1 span{color:#1565C0;display:block}
 .hero-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.65);max-width:500px;line-height:1.7;margin-bottom:40px;opacity:0;transform:translateY(25px)}
@@ -57,7 +57,7 @@ nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64p
 /* SERVICES */
 .svc-section{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
 .svc-left{padding:80px 60px;background:#1a1a1a}
-.svc-right{background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat;position:relative}
+.svc-right{background:url('https://images.unsplash.com/photo-1625047509253-ab38e31f45be?w=1600&q=80') center/cover no-repeat;position:relative}
 .svc-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#1a1a1a44,transparent)}
 .svc-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#1565C0;margin-bottom:14px}
 .svc-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:white;line-height:1;margin-bottom:40px}
@@ -143,7 +143,7 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
   
 </div>
 <nav id="nav">
-  <div class="nav-logo">Kabani's<span>.</span></div>
+  <div class="nav-logo">Kabani's Auto<span>.</span></div>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#about">About</a>
@@ -168,9 +168,9 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
 
 <div class="stats-row">
   <div class="stat-box"><div class="big">24/7</div><div class="sm">Emergency Response</div></div>
-  <div class="stat-box"><div class="big">100+</div><div class="sm">Jobs Completed</div></div>
-  <div class="stat-box"><div class="big">5★</div><div class="sm">Avg. Rating</div></div>
-  <div class="stat-box"><div class="big">#1</div><div class="sm">in Tulsa</div></div>
+  <div class="stat-box"><div class="big">500+</div><div class="sm">Happy Customers</div></div>
+  <div class="stat-box"><div class="big">A+</div><div class="sm">Rated Service</div></div>
+  <div class="stat-box"><div class="big">100%</div><div class="sm">Satisfaction Guaranteed</div></div>
 </div>
 
 <section class="svc-section" id="services">
@@ -179,20 +179,20 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
     <h2 class="svc-h">Our<br/>Services</h2>
     <div id="svc-list">
     <div class="svc-row" style="--i:0">
-      <div class="svc-icon-box">🔧</div>
-      <div><h3>Oil Changes & Tune-Ups</h3><p>Fast, affordable maintenance to extend engine life.</p></div>
+      <div class="svc-icon-box">⚙️</div>
+      <div><h3>Full Engine Repair</h3><p>Major and minor engine work done right the first time.</p></div>
     </div>
     <div class="svc-row" style="--i:1">
-      <div class="svc-icon-box">🛞</div>
-      <div><h3>Brake Service</h3><p>Inspection, pads, rotors — your safety is our priority.</p></div>
+      <div class="svc-icon-box">🔋</div>
+      <div><h3>Electrical Systems</h3><p>Battery, alternator, starter — full electrical diagnostics.</p></div>
     </div>
     <div class="svc-row" style="--i:2">
-      <div class="svc-icon-box">🔍</div>
-      <div><h3>Engine Diagnostics</h3><p>Advanced scans to pinpoint any issue fast.</p></div>
+      <div class="svc-icon-box">🌡️</div>
+      <div><h3>AC & Heating</h3><p>Stay comfortable year-round with our HVAC service.</p></div>
     </div>
     <div class="svc-row" style="--i:3">
-      <div class="svc-icon-box">🚗</div>
-      <div><h3>Tire & Wheel Service</h3><p>Rotation, balancing, alignment, and new tire sales.</p></div>
+      <div class="svc-icon-box">🛡️</div>
+      <div><h3>Scheduled Maintenance</h3><p>Factory-recommended service to protect your warranty.</p></div>
     </div></div>
   </div>
   <div class="svc-right"></div>
@@ -209,7 +209,7 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
     <a href="#contact" class="btn-red" style="display:inline-block;margin-top:28px">Book an Appointment</a>
   </div>
   <div class="about-img-block">
-    <div class="about-img-photo" style="background:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover no-repeat"></div>
+    <div class="about-img-photo" style="background:url('https://images.unsplash.com/photo-1625047509253-ab38e31f45be?w=1600&q=80') center/cover no-repeat"></div>
     <div class="about-badge">
       <div class="big">100+</div>
       <div class="sm">Satisfied<br/>Customers</div>
