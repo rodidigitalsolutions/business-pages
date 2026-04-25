@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SoundCloud Roof Deck · New York, NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#4A148C;--s:#AB47BC;--dk:#1A0030;--lt:#FAF0FF}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);padding:14px 48px;box-shadow:0 2px 20px rgba(0,0,0,.05)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:white;letter-spacing:.05em;transition:color .3s}
+nav.scrolled .nav-logo{color:#1A0030}
+.nav-center{display:flex;gap:32px}
+.nav-center a{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.75);transition:color .3s}
+nav.scrolled .nav-center a{color:#777}
+.nav-center a:hover{color:#4A148C!important}
+.book-btn{background:#4A148C;color:white;padding:10px 24px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:30px;transition:all .3s}
+.book-btn:hover{background:#AB47BC;transform:translateY(-1px);box-shadow:0 4px 16px #4A148C44}
+@media(max-width:768px){.nav-center{display:none}nav{padding:16px 24px}nav.scrolled{padding:12px 24px}}
+
+/* HERO — editorial full-bleed */
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden}
+.hero-img{background:url('https://images.unsplash.com/photo-1686259881379-084a418cba05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcwNzYwNzZ8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat;position:relative}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,#fff 100%)}
+.hero-text{background:#fff;padding:120px 60px 80px 40px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-text::before{content:'';position:absolute;top:0;left:-80px;bottom:0;width:80px;background:#fff}
+.hero-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:#4A148C;font-weight:700;margin-bottom:20px;opacity:0;transform:translateY(15px)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:700;color:#1A0030;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px;opacity:0;transform:translateY(35px)}
+.hero h1 em{font-style:italic;color:#4A148C}
+.hero-line{width:48px;height:2px;background:linear-gradient(to right,#4A148C,#AB47BC);margin:24px 0;opacity:0}
+.hero-sub{font-size:1rem;color:#777;line-height:1.8;font-weight:400;max-width:380px;margin-bottom:36px;opacity:0;transform:translateY(20px)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;transform:translateY(15px)}
+.btn-brand{background:linear-gradient(135deg,#4A148C,#AB47BC);color:white;padding:14px 32px;border-radius:30px;font-size:.88rem;font-weight:600;letter-spacing:.05em;transition:all .3s}
+.btn-brand:hover{transform:translateY(-2px);box-shadow:0 8px 24px #4A148C44}
+.btn-soft{background:#FAF0FF;color:#4A148C;padding:14px 28px;border-radius:30px;font-size:.88rem;font-weight:600;transition:all .3s}
+.btn-soft:hover{background:#4A148C;color:white}
+.hero-badge{position:absolute;bottom:40px;left:40px;background:white;border:1px solid #FAF0FF;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.hero-badge .stars{font-size:1rem;color:#AB47BC;letter-spacing:2px}
+.hero-badge .rating-text{font-size:.75rem;color:#999;margin-top:4px}
+
+/* TAGLINE BAND */
+.tagline-band{padding:40px;background:#FAF0FF;text-align:center}
+.tagline-band p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;color:#1A0030;font-weight:400;letter-spacing:.02em}
+
+/* TREATMENTS */
+.treatments{padding:100px 48px;background:#fff}
+.sec-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#4A148C;font-weight:700;margin-bottom:12px;text-align:center}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#1A0030;text-align:center;margin-bottom:56px;line-height:1.1}
+.sec-title em{font-style:italic;color:#4A148C}
+.treat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.treat-card{background:#FAF0FF;padding:36px 28px;position:relative;opacity:0;transform:translateY(30px);transition:all .35s}
+.treat-card:hover{background:linear-gradient(135deg,#4A148C0A,#AB47BC0A);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.treat-num{position:absolute;top:16px;right:16px;font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:#4A148C;opacity:.15;line-height:1}
+.treat-emoji{font-size:2rem;margin-bottom:16px;display:block}
+.treat-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#1A0030;margin-bottom:10px}
+.treat-card p{font-size:.85rem;color:#888;line-height:1.7;margin-bottom:20px}
+.treat-link{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4A148C;transition:gap .3s}
+.treat-link:hover{color:#AB47BC}
+
+/* ABOUT SPLIT */
+.about-split{display:grid;grid-template-columns:1fr 1fr}
+.about-left{padding:90px 60px;background:#1A0030;display:flex;flex-direction:column;justify-content:center}
+.about-left .sec-label{color:#AB47BC;text-align:left;margin-bottom:16px}
+.about-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:white;margin-bottom:20px;line-height:1.1}
+.about-left h2 em{font-style:italic;color:#AB47BC}
+.about-left p{color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.8;margin-bottom:16px;font-weight:300}
+.detail-row{display:flex;gap:10px;align-items:center;color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:8px}
+.detail-row .dot{width:4px;height:4px;background:#AB47BC;border-radius:50%;flex-shrink:0}
+.about-right{background:url('https://images.unsplash.com/photo-1686259881379-084a418cba05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcwNzYwNzZ8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat}
+
+/* REVIEW */
+.review-section{padding:80px 48px;background:#FAF0FF;text-align:center}
+.big-quote{font-family:'Cormorant Garamond',serif;font-size:6rem;line-height:.5;color:#4A148C;opacity:.2;margin-bottom:16px}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,2rem);font-style:italic;color:#1A0030;max-width:700px;margin:0 auto 24px;line-height:1.4;opacity:0;transform:translateY(20px)}
+.review-author{font-size:.8rem;color:#999;letter-spacing:.12em;text-transform:uppercase}
+
+/* BOOKING CTA */
+.booking-section{padding:80px 48px;background:linear-gradient(135deg,#4A148C,#AB47BC);text-align:center}
+.booking-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:700;color:white;margin-bottom:12px;line-height:1.1}
+.booking-section h2 em{font-style:italic}
+.booking-section p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:32px}
+.booking-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-white-solid{background:white;color:#4A148C;padding:14px 32px;border-radius:30px;font-weight:600;font-size:.9rem;transition:all .3s}
+.btn-white-solid:hover{background:#1A0030;color:white;transform:translateY(-2px)}
+.btn-ghost-white{border:1.5px solid rgba(255,255,255,.5);color:white;padding:13px 28px;border-radius:30px;font-size:.9rem;transition:all .3s}
+.btn-ghost-white:hover{background:rgba(255,255,255,.15)}
+
+/* FOOTER */
+footer{padding:32px 48px;background:#1A0030;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:white;letter-spacing:.05em}
+.f-credit{font-size:.72rem;color:rgba(255,255,255,.3)}
+.f-credit a{color:rgba(255,255,255,.45)}
+
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-img{min-height:320px}.hero-text{padding:60px 32px}.hero-text::before{display:none}.about-split{grid-template-columns:1fr}.about-right{min-height:300px}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-logo">🌿 SoundCloud Roof Deck</div>
+  <div class="nav-center">
+    <a href="#treatments">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Book</a>
+  </div>
+  <a href="#contact" class="book-btn">Book a Treatment</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-text">
+    <p class="hero-label" id="hl">Outdoor Event Space · New York, NY</p>
+    <h1 id="hh1"><em>SoundCloud Roof Deck</em><br/>Your Sanctuary of Relaxation & Renewal</h1>
+    <div class="hero-line" id="hline"></div>
+    <p class="hero-sub" id="hs">Escape the everyday at SoundCloud Roof Deck. Our skilled therapists in New York offer a full menu of restorative treatments designed to melt away stress and lea...</p>
+    <div class="hero-btns" id="hb">
+      <a href="#contact" class="btn-brand">Book a Treatment</a>
+      <a href="#treatments" class="btn-soft">Our Services</a>
+    </div>
+    
+  </div>
+</section>
+
+<div class="tagline-band">
+  <p>"Your Sanctuary of Relaxation & Renewal"</p>
+</div>
+
+<section class="treatments" id="treatments">
+  <p class="sec-label">Our Specialties</p>
+  <h2 class="sec-title">Treatments &amp; <em>Services</em></h2>
+  <div class="treat-grid">
+    <div class="treat-card">
+      <div class="treat-num">01</div>
+      <div class="treat-emoji">🧖</div>
+      <h3>Therapeutic Massages</h3>
+      <p>Swedish, deep tissue, hot stone, and more.</p>
+      <a href="#contact" class="treat-link">Book Now →</a>
+    </div>
+    <div class="treat-card">
+      <div class="treat-num">02</div>
+      <div class="treat-emoji">🌿</div>
+      <h3>Facial Treatments</h3>
+      <p>Custom facials to hydrate, clarify, and rejuvenate.</p>
+      <a href="#contact" class="treat-link">Book Now →</a>
+    </div>
+    <div class="treat-card">
+      <div class="treat-num">03</div>
+      <div class="treat-emoji">💆</div>
+      <h3>Body Wraps & Scrubs</h3>
+      <p>Detoxifying and nourishing full-body treatments.</p>
+      <a href="#contact" class="treat-link">Book Now →</a>
+    </div>
+    <div class="treat-card">
+      <div class="treat-num">04</div>
+      <div class="treat-emoji">🎁</div>
+      <h3>Spa Packages</h3>
+      <p>Perfect gift options for any occasion.</p>
+      <a href="#contact" class="treat-link">Book Now →</a>
+    </div></div>
+</section>
+
+<section class="about-split" id="about">
+  <div class="about-left">
+    <p class="sec-label">About Us</p>
+    <h2>Why New York<br/>Loves <em>SoundCloud</em></h2>
+    <p>Escape the everyday at SoundCloud Roof Deck. Our skilled therapists in New York offer a full menu of restorative treatments designed to melt away stress and leave you feeling completely renewed.</p>
+    <div class="detail-row"><div class="dot"></div>50 W 23rd St Fl 12, New York, NY</div>
+    
+    
+    <a href="#contact" class="btn-brand" style="display:inline-block;margin-top:28px;border-radius:30px">Book a Treatment</a>
+  </div>
+  <div class="about-right"></div>
+</section>
+
+<section class="review-section">
+  <p class="big-quote">"</p>
+  <p class="review-text" id="rtext">"SoundCloud Roof Deck completely exceeded my expectations. The results were incredible and the team made me feel so welcome. I won't go anywhere else."</p>
+  <p class="review-author">Verified Customer · New York, NY</p>
+</section>
+
+<section class="booking-section" id="contact">
+  <h2>Ready to Feel <em>Amazing?</em></h2>
+  <p>Book your appointment today — we can't wait to see you.</p>
+  <div class="booking-btns">
+    
+    <a href="mailto:info@soundcloud-roof-deck.com" class="btn-ghost-white">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">🌿 SoundCloud Roof Deck</div>
+  <div class="f-credit">© SoundCloud Roof Deck · Website by <a href="https://rodidigitalsolutions.com" target="_blank">Rodi Digital Solutions</a></div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+const tl=gsap.timeline({defaults:{ease:'power3.out'}});
+tl.to('#hl',{opacity:1,y:0,duration:.6},.3)
+  .to('#hh1',{opacity:1,y:0,duration:.9},.5)
+  .to('#hline',{opacity:1,duration:.6},.75)
+  .to('#hs',{opacity:1,y:0,duration:.8},.8)
+  .to('#hb',{opacity:1,y:0,duration:.7},1.0);
+document.querySelectorAll('.treat-card').forEach((el,i)=>gsap.to(el,{opacity:1,y:0,duration:.6,delay:i*.08,scrollTrigger:{trigger:el,start:'top 88%'}}));
+gsap.to('#rtext',{opacity:1,y:0,duration:.9,scrollTrigger:{trigger:'#rtext',start:'top 80%'}});
+</script>
+</body></html>
