@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Hometeam Pest Defense · Tulsa, OK</title>
+<title>Hometeam Pest Defense~1 · Tulsa, OK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -33,7 +33,7 @@ nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64p
 
 /* HERO */
 .hero{min-height:100vh;padding-top:104px;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://image.pollinations.ai/prompt/Professional%20photorealistic%20hero%20image%20for%20a%20Pest%20Control%20Service%20business%20website.%20Location%3A%20Tulsa.%20Show%20real%20work%20being%20done%20%E2%80%94%20staff%2C%20equipment%2C%20the%20environment.%20Bright%2C%20clean%2C%20wide%20landscape%20composition.%20No%20text%2C%20no%20logos%2C%20no%20watermarks.?width=1792&height=1024&seed=54915&model=flux&nologo=true') center/cover no-repeat;filter:brightness(.25);transform:scale(1.05);will-change:transform}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621912738258-516d805c2e5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMzExODV8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat;filter:brightness(.25);transform:scale(1.05);will-change:transform}
 .hero-accent{position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(to left,#8BC34A22,transparent);pointer-events:none}
 .hero-content{position:relative;z-index:2;padding:0 40px;max-width:900px}
 .hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px)}
@@ -57,7 +57,7 @@ nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64p
 /* SERVICES */
 .svc-section{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
 .svc-left{padding:80px 60px;background:#1a1a1a}
-.svc-right{background:url('https://image.pollinations.ai/prompt/Professional%20photorealistic%20hero%20image%20for%20a%20Pest%20Control%20Service%20business%20website.%20Location%3A%20Tulsa.%20Show%20real%20work%20being%20done%20%E2%80%94%20staff%2C%20equipment%2C%20the%20environment.%20Bright%2C%20clean%2C%20wide%20landscape%20composition.%20No%20text%2C%20no%20logos%2C%20no%20watermarks.?width=1792&height=1024&seed=54915&model=flux&nologo=true') center/cover no-repeat;position:relative}
+.svc-right{background:url('https://images.unsplash.com/photo-1621912738258-516d805c2e5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMzExODV8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat;position:relative}
 .svc-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#1a1a1a44,transparent)}
 .svc-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#8BC34A;margin-bottom:14px}
 .svc-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:white;line-height:1;margin-bottom:40px}
@@ -100,68 +100,75 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
 
 /* --- RDS Variant Overrides --- */
 
-/* === BOLD personality === */
+/* === MINIMAL personality === */
 .hero-btn,.nav-btn,.cta-btn-white,.book-btn,.cta-btn {
-  transition: all .18s cubic-bezier(.175,.885,.32,1.275) !important;
+  transition: all .35s ease !important;
 }
 .hero-btn:hover,.nav-btn:hover,.cta-btn-white:hover,.book-btn:hover,.cta-btn:hover {
-  transform: scale(1.05) translateY(-3px) !important;
-  box-shadow: 0 10px 28px rgba(0,0,0,.28) !important;
-}
-.hero-btn-ghost:hover,.cta-btn-ghost:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.14) !important;
+  opacity: .92 !important;
 }
-.menu-item,.svc-card,.service-card,.about-card,.svc-item {
-  transition: transform .2s, box-shadow .2s, border-left .2s !important;
+.menu-item,.svc-card,.service-card,.svc-item {
+  transition: box-shadow .38s ease !important;
 }
-.menu-item:hover,.svc-card:hover,.service-card:hover,.about-card:hover,.svc-item:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 20px 48px rgba(0,0,0,.16) !important;
-  border-left: 4px solid #33691E !important;
+.menu-item:hover,.svc-card:hover,.service-card:hover,.svc-item:hover {
+  box-shadow: 0 6px 22px rgba(0,0,0,.08) !important;
+  transform: none !important;
 }
-.menu-emoji,.svc-icon,.service-icon { transition: transform .2s !important; }
-.menu-item:hover .menu-emoji,
-.svc-card:hover .svc-icon,
-.service-card:hover .service-icon { transform: scale(1.25) !important; }
-.nav-links a { transition: color .15s, transform .15s !important; }
-.nav-links a:hover { color: #33691E !important; transform: translateY(-1px) !important; }
+.nav-links a { transition: opacity .3s !important; }
+.nav-links a:hover { opacity: .6 !important; }
 
-/* === STRIPS services layout === */
+/* === PANEL hero layout === */
+.hero { align-items: stretch !important; padding-bottom: 0 !important; }
+.hero-content {
+  background: rgba(0,0,0,.58);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 120px 56px 72px !important;
+  max-width: 560px !important;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+@media(max-width:700px) {
+  .hero-content { max-width: 100% !important; min-height: 70vh; padding: 80px 28px 48px !important; }
+}
+
+/* === NUMBERED services layout === */
 .menu-grid,.svc-grid,.svcs-grid,.services-grid {
   display: block !important;
-  max-width: 860px !important;
+  max-width: 760px !important;
   margin: 0 auto !important;
 }
 .menu-item,.svc-card,.service-card,.svc-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px !important;
-  padding: 18px 24px !important;
-  margin-bottom: 8px !important;
-  border-radius: 6px !important;
-  background: #F1F8EC !important;
+  display: grid !important;
+  grid-template-columns: 72px 1fr !important;
+  align-items: start !important;
+  gap: 0 20px !important;
+  padding: 28px 0 !important;
+  border-top: 1px solid rgba(0,0,0,.07) !important;
   border-left: none !important;
   box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
   transform: none !important;
 }
+.menu-item:first-child,.svc-card:first-child,.svc-item:first-child { border-top: none !important; }
 .menu-item:hover,.svc-card:hover,.service-card:hover,.svc-item:hover {
-  background: white !important;
-  box-shadow: 0 4px 18px rgba(0,0,0,.09) !important;
-  transform: translateX(5px) !important;
-  border-left: 3px solid #33691E !important;
+  border-left: none !important; transform: none !important;
+  box-shadow: none !important; background: transparent !important;
 }
 .menu-emoji,.svc-icon,.service-icon {
-  font-size: 1.7rem !important; flex-shrink: 0 !important;
-  width: 44px !important; text-align: center !important;
+  font-size: .9rem !important; padding-top: 6px !important;
+  grid-row: 2; color: #33691E;
 }
-.svc-num { display: none !important; }
+.svc-num { display: block !important; }
+.menu-item .svc-num::before { content: attr(data-n); }
 .menu-body h3,.svc-card h3,.service-card h3,.svc-item h3 {
-  font-size: .98rem !important; margin-bottom: 3px !important;
+  font-size: 1.05rem !important; margin-bottom: 6px !important;
 }
-.menu-body p,.svc-card p,.service-card p,.svc-item p {
-  font-size: .82rem !important;
-}
+.about-img-block { display: none; }
 
 </style>
 </head>
@@ -184,7 +191,7 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-accent"></div>
   <div class="hero-content">
-    <div class="hero-kicker" id="hk">Hometeam Pest Defense · Tulsa, OK</div>
+    <div class="hero-kicker" id="hk">Hometeam Pest Defense~1 · Tulsa, OK</div>
     <h1 id="hh1">No bugs. No call<span> centres. Just results</span></h1>
     <p class="hero-sub" id="hs">Hometeam Pest Defense built its name in Tulsa on word of mouth. Good work, honest pricing, and showing up when we say we will....</p>
     <div class="hero-btns" id="hb">
@@ -237,7 +244,7 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
     <a href="#contact" class="btn-red" style="display:inline-block;margin-top:28px">Get in Touch</a>
   </div>
   <div class="about-img-block">
-    <div class="about-img-photo" style="background:url('https://image.pollinations.ai/prompt/Professional%20photorealistic%20hero%20image%20for%20a%20Pest%20Control%20Service%20business%20website.%20Location%3A%20Tulsa.%20Show%20real%20work%20being%20done%20%E2%80%94%20staff%2C%20equipment%2C%20the%20environment.%20Bright%2C%20clean%2C%20wide%20landscape%20composition.%20No%20text%2C%20no%20logos%2C%20no%20watermarks.?width=1792&height=1024&seed=54915&model=flux&nologo=true') center/cover no-repeat"></div>
+    <div class="about-img-photo" style="background:url('https://images.unsplash.com/photo-1621912738258-516d805c2e5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMzExODV8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat"></div>
     <div class="about-badge">
       <div class="big">100+</div>
       <div class="sm">Satisfied<br/>Customers</div>
@@ -250,13 +257,13 @@ footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;just
   <p>Same-day service available. We come to you.</p>
   <div class="cta-btns">
     
-    <a href="mailto:info@hometeam-pest-defense.com" class="btn-outline" style="border-color:rgba(255,255,255,.5)">Email Us</a>
+    <a href="mailto:info@hometeam-pest-defense-1.com" class="btn-outline" style="border-color:rgba(255,255,255,.5)">Email Us</a>
   </div>
 </section>
 
 <footer>
   <div class="f-logo">Hometeam<span>.</span></div>
-  <div class="f-credit">© Hometeam Pest Defense · Website by <a href="https://rodidigitalsolutions.com" target="_blank">Rodi Digital Solutions</a></div>
+  <div class="f-credit">© Hometeam Pest Defense~1 · Website by <a href="https://rodidigitalsolutions.com" target="_blank">Rodi Digital Solutions</a></div>
 </footer>
 
 <script>
