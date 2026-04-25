@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Black Tie Cleaning Service · Tulsa, OK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#2E7D32;--s:#00BFA5;--dk:#071A0A;--lt:#F1F9F1}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:#071A0A;color:white;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* EMERGENCY BANNER — uses secondary if primary is too dark to stand out */
+.emergency-bar{background:#00BFA5;padding:10px 40px;text-align:center;position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:center;gap:16px}
+.emergency-bar span{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.emergency-bar a{background:white;color:#071A0A;padding:6px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.05em;transition:all .3s}
+.emergency-bar a:hover{background:rgba(0,0,0,.2);color:white}
+
+/* NAV */
+nav{position:fixed;top:40px;left:0;right:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:#071A0AEE;backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:white}
+.nav-logo span{color:#00BFA5}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
+.nav-links a:hover{color:#00BFA5}
+.nav-phone{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#00BFA5;letter-spacing:.03em}
+@media(max-width:700px){.nav-links{display:none}nav{padding:0 20px}}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:104px;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1769636929930-9afa5fb4fae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMDQ1OTZ8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat;filter:brightness(.25);transform:scale(1.05);will-change:transform}
+.hero-accent{position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(to left,#00BFA522,transparent);pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:0 40px;max-width:900px}
+.hero-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px)}
+.hero-kicker::before{content:'';display:block;width:32px;height:2px;background:#00BFA5}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,10vw,9rem);font-weight:900;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;color:white;margin-bottom:24px;opacity:0;transform:translateY(50px)}
+.hero h1 span{color:#00BFA5;display:block}
+.hero-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.65);max-width:500px;line-height:1.7;margin-bottom:40px;opacity:0;transform:translateY(25px)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.btn-red{background:#00BFA5;color:white;padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .3s}
+.btn-red:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 24px #00BFA555}
+.btn-outline{border:2px solid rgba(255,255,255,.3);color:white;padding:14px 32px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:all .3s}
+.btn-outline:hover{border-color:#00BFA5;color:#00BFA5}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.stat-box{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-box:last-child{border-right:none}
+.stat-box .big{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:900;color:#00BFA5;line-height:1}
+.stat-box .sm{font-size:.75rem;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+
+/* SERVICES */
+.svc-section{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.svc-left{padding:80px 60px;background:#1a1a1a}
+.svc-right{background:url('https://images.unsplash.com/photo-1769636929930-9afa5fb4fae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMDQ1OTZ8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat;position:relative}
+.svc-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#1a1a1a44,transparent)}
+.svc-kicker{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#00BFA5;margin-bottom:14px}
+.svc-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;color:white;line-height:1;margin-bottom:40px}
+.svc-row{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06);opacity:0;transform:translateX(-20px)}
+.svc-row:last-child{border-bottom:none}
+.svc-icon-box{width:40px;height:40px;background:#00BFA522;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;border:1px solid #00BFA544}
+.svc-row h3{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:white;margin-bottom:4px}
+.svc-row p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* ABOUT */
+.about-band{padding:80px 60px;background:#161616;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-band h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;text-transform:uppercase;color:white;line-height:1;margin-bottom:20px}
+.about-band p{color:rgba(255,255,255,.55);line-height:1.8;font-weight:300;margin-bottom:14px;font-size:.95rem}
+.fact-row{display:flex;gap:12px;align-items:center;font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:10px}
+.fact-row::before{content:'✓';color:#00BFA5;font-weight:700;flex-shrink:0}
+.about-img-block{position:relative;overflow:hidden}
+.about-img-block img,.about-img-photo{width:100%;height:380px;object-fit:cover;display:block}
+.about-badge{position:absolute;bottom:20px;left:20px;background:#00BFA5;padding:20px 24px;min-width:120px}
+.about-badge .big{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:900;line-height:1}
+.about-badge .sm{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-top:4px}
+
+/* CTA */
+.cta-full{padding:80px 40px;text-align:center;background:#00BFA5;position:relative;overflow:hidden}
+.cta-full::before{content:attr(data-text);position:absolute;font-family:'Barlow Condensed',sans-serif;font-size:20vw;font-weight:900;color:rgba(0,0,0,.12);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;letter-spacing:-.02em;text-transform:uppercase}
+.cta-full h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;text-transform:uppercase;color:white;margin-bottom:12px;position:relative}
+.cta-full p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:32px;position:relative}
+.cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative}
+.btn-white{background:white;color:#071A0A;padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:all .3s}
+.btn-white:hover{background:#071A0A;color:white;transform:translateY(-2px)}
+
+/* FOOTER */
+footer{padding:28px 40px;background:#0a0a0a;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.f-logo span{color:#00BFA5}
+.f-credit{font-size:.72rem;color:rgba(255,255,255,.25)}
+.f-credit a{color:rgba(255,255,255,.4)}
+
+@media(max-width:900px){.svc-section,.about-band{grid-template-columns:1fr}.svc-right{min-height:280px}.stats-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.svc-left,.about-band{padding:60px 24px}.cta-full{padding:60px 24px}}
+
+/* --- RDS Variant Overrides --- */
+
+/* === PLAYFUL personality === */
+@keyframes rds-bounce {
+  0%   { transform: scale(1) translateY(0); }
+  35%  { transform: scale(1.07) translateY(-5px); }
+  65%  { transform: scale(.97) translateY(-2px); }
+  100% { transform: scale(1.02) translateY(-3px); }
+}
+@keyframes rds-wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-8deg); }
+  75%      { transform: rotate(8deg); }
+}
+.hero-btn:hover,.nav-btn:hover,.cta-btn-white:hover,.book-btn:hover,.cta-btn:hover {
+  animation: rds-bounce .32s forwards !important;
+}
+.menu-item:hover,.svc-card:hover,.service-card:hover,.svc-item:hover {
+  transform: rotate(.6deg) translateY(-5px) !important;
+  box-shadow: 0 14px 36px rgba(0,0,0,.14) !important;
+}
+.menu-item:hover .menu-emoji { animation: rds-wiggle .4s ease !important; }
+.svc-card:hover .svc-icon { animation: rds-wiggle .4s ease !important; }
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 2px; background: #2E7D32;
+  transition: width .28s cubic-bezier(.175,.885,.32,1.275);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: #2E7D32 !important; }
+
+/* === STRIPS services layout === */
+.menu-grid,.svc-grid,.svcs-grid,.services-grid {
+  display: block !important;
+  max-width: 860px !important;
+  margin: 0 auto !important;
+}
+.menu-item,.svc-card,.service-card,.svc-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  padding: 18px 24px !important;
+  margin-bottom: 8px !important;
+  border-radius: 6px !important;
+  background: #F1F9F1 !important;
+  border-left: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.menu-item:hover,.svc-card:hover,.service-card:hover,.svc-item:hover {
+  background: white !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,.09) !important;
+  transform: translateX(5px) !important;
+  border-left: 3px solid #2E7D32 !important;
+}
+.menu-emoji,.svc-icon,.service-icon {
+  font-size: 1.7rem !important; flex-shrink: 0 !important;
+  width: 44px !important; text-align: center !important;
+}
+.svc-num { display: none !important; }
+.menu-body h3,.svc-card h3,.service-card h3,.svc-item h3 {
+  font-size: .98rem !important; margin-bottom: 3px !important;
+}
+.menu-body p,.svc-card p,.service-card p,.svc-item p {
+  font-size: .82rem !important;
+}
+
+</style>
+</head>
+<body>
+<div class="emergency-bar">
+  <span>⚡ 24/7 Emergency Service Available</span>
+  
+</div>
+<nav id="nav">
+  <div class="nav-logo">Black Tie<span>.</span></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-kicker" id="hk">Black Tie Cleaning Service · Tulsa, OK</div>
+    <h1 id="hh1">We do the work. You<span> get the results</span></h1>
+    <p class="hero-sub" id="hs">Black Tie Cleaning Service has been part of Tulsa for years. We do the work ourselves, charge fair prices, and stand behind what we deliver....</p>
+    <div class="hero-btns" id="hb">
+      <a href="#contact" class="btn-red">Get in Touch</a>
+      
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="big">24/7</div><div class="sm">Emergency Response</div></div>
+  <div class="stat-box"><div class="big">500+</div><div class="sm">Happy Customers</div></div>
+  <div class="stat-box"><div class="big">A+</div><div class="sm">Rated Service</div></div>
+  <div class="stat-box"><div class="big">100%</div><div class="sm">Satisfaction Guaranteed</div></div>
+</div>
+
+<section class="svc-section" id="services">
+  <div class="svc-left">
+    <p class="svc-kicker">What We Do</p>
+    <h2 class="svc-h">Our<br/>Services</h2>
+    <div id="svc-list">
+    <div class="svc-row" style="--i:0">
+      <div class="svc-icon-box">⭐</div>
+      <div><h3>Expert Service</h3><p>Skilled professionals dedicated to quality work.</p></div>
+    </div>
+    <div class="svc-row" style="--i:1">
+      <div class="svc-icon-box">🤝</div>
+      <div><h3>Honest Pricing</h3><p>Transparent quotes with no hidden fees — ever.</p></div>
+    </div>
+    <div class="svc-row" style="--i:2">
+      <div class="svc-icon-box">⚡</div>
+      <div><h3>Fast Turnaround</h3><p>We respect your time and deliver on our promises.</p></div>
+    </div>
+    <div class="svc-row" style="--i:3">
+      <div class="svc-icon-box">💯</div>
+      <div><h3>Satisfaction Guaranteed</h3><p>We don't stop until you're 100% happy with the result.</p></div>
+    </div></div>
+  </div>
+  <div class="svc-right"></div>
+</section>
+
+<section class="about-band" id="about">
+  <div class="about-text">
+    <h2>Why Tulsa<br/>Trusts Us</h2>
+    <p>Black Tie Cleaning Service has been part of Tulsa for years. We do the work ourselves, charge fair prices, and stand behind what we deliver.</p>
+    <div class="fact-row">3702 E 51st St, Tulsa, OK</div>
+    
+    <div class="fact-row">Licensed, bonded &amp; fully insured</div>
+    <div class="fact-row">We quote it. We charge it. No surprises.</div>
+    <a href="#contact" class="btn-red" style="display:inline-block;margin-top:28px">Get in Touch</a>
+  </div>
+  <div class="about-img-block">
+    <div class="about-img-photo" style="background:url('https://images.unsplash.com/photo-1769636929930-9afa5fb4fae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzQ0NjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzcxMDQ1OTZ8&ixlib=rb-4.1.0&q=80&w=1080&w=1600&q=80') center/cover no-repeat"></div>
+    <div class="about-badge">
+      <div class="big">100+</div>
+      <div class="sm">Satisfied<br/>Customers</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-full" id="contact" data-text="CALL US">
+  <h2>Get Your Free Quote</h2>
+  <p>Same-day service available. We come to you.</p>
+  <div class="cta-btns">
+    
+    <a href="mailto:info@black-tie-cleaning-service.com" class="btn-outline" style="border-color:rgba(255,255,255,.5)">Email Us</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Black<span>.</span></div>
+  <div class="f-credit">© Black Tie Cleaning Service · Website by <a href="https://rodidigitalsolutions.com" target="_blank">Rodi Digital Solutions</a></div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.to('#hero-bg',{filter:'brightness(.25)',yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+const tl=gsap.timeline({defaults:{ease:'power3.out'}});
+tl.to('#hk',{opacity:1,y:0,duration:.6},.2)
+  .to('#hh1',{opacity:1,y:0,duration:.9},.4)
+  .to('#hs',{opacity:1,y:0,duration:.8},.6)
+  .to('#hb',{opacity:1,y:0,duration:.7},.8);
+document.querySelectorAll('.svc-row').forEach((el,i)=>gsap.to(el,{opacity:1,x:0,duration:.6,delay:i*.1,scrollTrigger:{trigger:'#svc-list',start:'top 80%'}}));
+</script>
+</body></html>
